@@ -40,7 +40,6 @@ export function Navigation() {
                             </div>
                         </Link>
 
-
                         {/* Desktop Menu - Navigation en ligne */}
                         <div className="hidden md:flex items-center gap-2">
                             {navItems.map((item) => (
