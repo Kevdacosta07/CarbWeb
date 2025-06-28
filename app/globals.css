@@ -1,0 +1,132 @@
+
+@import "tailwindcss";
+@tailwind utilities;
+
+/* Variables globales pour le thème noir - Contraste amélioré */
+:root {
+    --bg-primary: #000000;
+    --bg-secondary: #0a0a0a;
+    --bg-card: #111111;
+    --border-color: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db; /* Changé de #a1a1aa à #d1d5db pour meilleur contraste */
+    --text-muted: #9ca3af; /* Nouvelle couleur pour texte secondaire avec meilleur contraste */
+    --accent-green: #10b981;
+    --accent-blue: #3b82f6;
+}
+
+* {
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+    min-height: 100vh;
+}
+
+/* Animations personnalisées */
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(16, 185, 129, 0.5); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-glow {
+    animation: glow 3s ease-in-out infinite;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Effets de glassmorphism - Contraste amélioré */
+.glass {
+    background: rgba(17, 17, 17, 0.9); /* Augmenté de 0.8 à 0.9 pour plus d'opacité */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-light {
+    background: rgba(26, 26, 26, 0.8); /* Augmenté de 0.6 à 0.8 pour plus d'opacité */
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Augmenté de 0.05 à 0.1 */
+}
+
+/* Classes utilitaires pour améliorer le contraste */
+.text-contrast-high {
+    color: #ffffff;
+}
+
+.text-contrast-medium {
+    color: #d1d5db;
+}
+
+.text-contrast-accessible {
+    color: #9ca3af;
+}
+
+.bg-contrast-overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Slider styling */
+.slider {
+    background: #374151;
+    background-image: linear-gradient(to right, #10b981 0%, #10b981 50%, transparent 50%);
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #10b981;
+    cursor: pointer;
+    border: 2px solid #065f46;
+    box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+}
+
+.slider::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #10b981;
+    cursor: pointer;
+    border: 2px solid #065f46;
+    box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+}
+
+.slider:focus {
+    outline: none;
+}
+
+.slider:focus::-webkit-slider-thumb {
+    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.5);
+}
