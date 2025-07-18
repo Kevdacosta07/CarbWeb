@@ -142,7 +142,7 @@ L'application utilise une méthodologie scientifique basée sur :
 
 - **Site web** : https://carbweb.ch
 - **Méthodologie** : https://carbweb.ch/methodologie
-- **Contact** : [email de contact]
+- **Contact** : contact@helveit.ch
 
 ## 🏆 Impact et résultats
 
