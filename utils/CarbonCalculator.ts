@@ -67,13 +67,12 @@ interface CarbonAnalysisResult {
 export class CarbonCalculator {
     // 🎯 COEFFICIENTS CORRECTS WEBSITE CARBON CALCULATOR
     // Source exacte: Sustainable Web Design Model
-    private static readonly CO2_GRAMS_PER_BYTE = 0.000000081; // 0.081 milligramme par byte (CORRECT)
+    private static readonly CO2_GRAMS_PER_BYTE = 0.000000081; // 0.081 milligramme par byte
 
     // Facteurs de réduction réalistes
     private static readonly GREEN_HOSTING_REDUCTION = 0.95; // -5% pour hébergement vert
 
-    // 🔥 STATISTIQUES WEB RÉALISTES 2024 - CORRIGÉES
-    private static readonly WEB_MEDIAN_CO2 = 0.8; // grammes CO₂ médiane web 2024 (Website Carbon officiel)
+    private static readonly WEB_MEDIAN_CO2 = 0.8; // grammes CO₂ médiane web 2024
     private static readonly WEB_AVERAGE_SIZE_MB = 2.1; // Taille moyenne page web 2024
     private static readonly BYTES_PER_MB = 1024 * 1024;
 
@@ -86,7 +85,7 @@ export class CarbonCalculator {
     };
 
     /**
-     * ✨ MODIFIÉ : Analyse complète avec choix mobile/desktop
+     Analyse complète avec choix mobile/desktop
      */
     static async analyzeWebsite(url: string, strategy: 'mobile' | 'desktop' = 'mobile'): Promise<CarbonAnalysisResult> {
         try {
@@ -112,7 +111,7 @@ export class CarbonCalculator {
 
             const result: CarbonAnalysisResult = {
                 url,
-                strategy, // ✨ NOUVEAU : Ajouter la stratégie
+                strategy, // Ajouter la stratégie
                 score: environmentalScore.score,
                 grade: environmentalScore.grade,
                 totalSize: pageSpeedData.resources.totalBytes / this.BYTES_PER_MB,
@@ -157,7 +156,7 @@ export class CarbonCalculator {
     }
 
     /**
-     * ✨ MODIFIÉ : Récupération des données PageSpeed avec stratégie
+     * Récupération des données PageSpeed avec stratégie
      */
     private static async getPageSpeedData(url: string, strategy: 'mobile' | 'desktop' = 'mobile'): Promise<PageSpeedResult> {
         const apiKey = process.env.NEXT_PUBLIC_PAGESPEED_API_KEY;
@@ -167,7 +166,7 @@ export class CarbonCalculator {
 
         const normalizedUrl = url.startsWith('http') ? url : `https://${url}`;
 
-        // ✨ MODIFIÉ : Utiliser la stratégie dans l'URL de l'API
+        // Utiliser la stratégie dans l'URL de l'API
         const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(normalizedUrl)}&key=${apiKey}&category=performance&strategy=${strategy}`;
 
         console.log(`📊 Appel PageSpeed API (${strategy}) pour: ${normalizedUrl}`);
@@ -292,7 +291,7 @@ export class CarbonCalculator {
     }
 
     /**
-     * 🎯 CALCUL CO2 CORRIGÉ - Coefficient exact Website Carbon Calculator
+     Coefficient exact
      */
     private static calculateCorrectCO2(pageSpeedData: PageSpeedResult, isGreenHosted: boolean): { co2PerVisit: number; annualCO2: number } {
         const totalBytes = pageSpeedData.resources.totalBytes;
@@ -300,7 +299,6 @@ export class CarbonCalculator {
 
         console.log(`📊 Calcul CO2 CORRIGÉ pour ${totalBytes} bytes (${sizeMB.toFixed(2)} MB)`);
 
-        // 🎯 CALCUL CORRIGÉ selon Website Carbon Calculator
         // Formule: CO2 = bytes × coefficient_exact
         let co2PerVisit = totalBytes * this.CO2_GRAMS_PER_BYTE;
 
@@ -323,7 +321,7 @@ export class CarbonCalculator {
     }
 
     /**
-     * ✨ NOUVEAU : Génération des suggestions avec stratégie
+     * Génération des suggestions avec stratégie
      */
     private static generateSuggestions(pageSpeedData: PageSpeedResult, isGreenHosted: boolean, strategy?: 'mobile' | 'desktop'): string[] {
         const suggestions: string[] = [];
@@ -454,7 +452,7 @@ export class CarbonCalculator {
 
         let vsAverage: string;
 
-        // ✨ CORRIGÉ : Logique de comparaison améliorée
+        // Logique de comparaison
         if (vsMedian <= 0.3) {
             const reduction = Math.round((1 - vsMedian) * 100);
             vsAverage = `${reduction}% moins polluant que la médiane web`;

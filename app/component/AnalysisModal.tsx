@@ -11,18 +11,17 @@ interface AnalysisModalProps {
 export function AnalysisModal({ isOpen, stage, url, onClose }: AnalysisModalProps) {
     if (!isOpen) return null;
 
-    // ✨ CORRIGÉ : Liste des étapes dynamique
+    // Liste des étapes dynamique
     const stages = [
         'Validation de l\'URL...',
         'Vérification de l\'accessibilité du site...',
-        // ✨ Pattern flexible pour détecter l'étape PageSpeed (mobile OU desktop)
         'Analyse des performances',
         'Vérification de l\'hébergement vert...',
         'Calcul de l\'empreinte carbone...',
         'Finalisation de l\'analyse...'
     ];
 
-    // ✨ MODIFIÉ : Détection d'étape plus flexible
+    // Détection d'étape
     const getCurrentStageIndex = (currentStage: string) => {
         if (currentStage.includes('Validation de l\'URL')) return 0;
         if (currentStage.includes('Vérification de l\'accessibilité')) return 1;
@@ -43,7 +42,7 @@ export function AnalysisModal({ isOpen, stage, url, onClose }: AnalysisModalProp
         } else if (stageName.includes('Vérification de l\'accessibilité')) {
             return { icon: '🌐', color: 'text-green-400' };
         } else if (stageName.includes('Analyse des performances') || isCurrentStage && stage.includes('Analyse des performances')) {
-            // ✨ Détection dynamique mobile/desktop
+            // Détection mobile/desktop
             if (stage.includes('mobiles')) {
                 return { icon: '📱', color: 'text-purple-400' };
             } else if (stage.includes('desktop')) {
@@ -76,14 +75,14 @@ export function AnalysisModal({ isOpen, stage, url, onClose }: AnalysisModalProp
 
     const displayUrl = getDisplayUrl(url || '');
 
-    // ✨ NOUVEAU : Fonction pour afficher le nom de l'étape avec le bon texte
+    // Fonction pour afficher le nom de l'étape avec le bon texte
     const getDisplayStage = (stageName: string, index: number) => {
         if (index === 2) { // Étape PageSpeed
             // Si c'est l'étape courante, utiliser le texte exact
             if (currentStageIndex === 2) {
                 return stage;
             }
-            // Sinon, texte générique
+            // Sinon texte générique
             return 'Analyse des performances via Google PageSpeed...';
         }
         return stageName === 'Analyse des performances' ? 'Analyse des performances via Google PageSpeed...' : stageName;

@@ -111,7 +111,7 @@ export function EcoTips() {
                 </div>
             </div>
 
-            {/* Ressources supplémentaires - Grille mobile */}
+            {/* Ressources - Grille mobile */}
             <div className="mt-8 sm:mt-12 border-t border-white/10 pt-6 sm:pt-8">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
                     <div className="text-center p-4 glass rounded-xl">

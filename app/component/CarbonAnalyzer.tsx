@@ -20,7 +20,7 @@ export function CarbonAnalyzer({ onAnalysis, isLoading, setIsLoading }: CarbonAn
     const [analysisStage, setAnalysisStage] = useState('');
     const [currentAnalysisUrl, setCurrentAnalysisUrl] = useState('');
 
-    // ✨ NOUVEAU : État pour le choix mobile/desktop
+    // Choix mobile/desktop
     const [strategy, setStrategy] = useState<'mobile' | 'desktop'>('mobile');
 
     const analyzeWebsite = async () => {
@@ -74,7 +74,7 @@ export function CarbonAnalyzer({ onAnalysis, isLoading, setIsLoading }: CarbonAn
             setAnalysisStage('Calcul de l\'empreinte carbone...');
             await new Promise(resolve => setTimeout(resolve, 1200));
 
-            // ✨ MODIFIÉ : Passer la stratégie au CarbonCalculator
+            // Passer la stratégie au CarbonCalculator
             const analysisResult = await CarbonCalculator.analyzeWebsite(normalizedUrl, strategy);
 
             // Étape 6: Finalisation

@@ -43,56 +43,56 @@ interface CarbonResultsProps {
 export function CarbonResults({ data, onReset }: CarbonResultsProps) {
     const [monthlyVisitors, setMonthlyVisitors] = useState(5000);
 
-    // 🚀 ÉQUIVALENCES RÉVOLUTIONNAIRES ET IMPACTANTES
+    // ÉQUIVALENCES
     const calculatePowerfulEquivalences = () => {
         const co2PerVisit = data.co2PerVisit;
 
         // Impact annuel basé sur les visiteurs estimés
         const annualCO2Kg = (co2PerVisit * monthlyVisitors * 12) / 1000;
 
-        // 🔥 ÉQUIVALENCES PUISSANTES ET PARLANTES
+        // ÉQUIVALENCES PUISSANTES ET PARLANTES
         const equivalences = {
-            // 💡 Ampoule LED allumée 10h = 80g CO₂ (8W × 10h × 0.001 kg CO₂/Wh)
+            // Ampoule LED allumée 10h = 80g CO₂ (8W × 10h × 0.001 kg CO₂/Wh)
             ledHours: (co2PerVisit / 8) * 100, // Heures d'éclairage LED
 
-            // 🔥 Chauffage maison 1h = 2kg CO₂ (2000W × 1h × 0.001)
+            // Chauffage maison 1h = 2kg CO₂ (2000W × 1h × 0.001)
             heatingMinutes: (co2PerVisit / 2000) * 60 * 1000, // Minutes de chauffage
 
-            // ✈️ Vol Paris-Londres = 220kg CO₂ par passager
+            // Vol Paris-Londres = 220kg CO₂ par passager
             flightDistance: (co2PerVisit / 220000) * 344, // km de vol équivalent
 
-            // 🏭 Production d'1 T-shirt coton = 2.5kg CO₂
+            // Production d'1 T-shirt coton = 2.5kg CO₂
             tshirts: co2PerVisit / 2500, // Fraction de T-shirt
 
-            // 🥩 Production 100g bœuf = 6kg CO₂
+            // Production 100g bœuf = 6kg CO₂
             beefGrams: (co2PerVisit / 60) * 1000, // Grammes de bœuf
 
-            // 🚗 Voiture électrique vs essence (120g/km vs 180g/km)
+            // Voiture électrique vs essence (120g/km vs 180g/km)
             electricCarKm: (co2PerVisit / 120) * 1000, // mètres en voiture électrique
             gasCarKm: (co2PerVisit / 180) * 1000, // mètres en voiture essence
 
-            // 📱 Production d'un smartphone = 85kg CO₂
+            // Production d'un smartphone = 85kg CO₂
             smartphone: co2PerVisit / 85000, // Fraction de smartphone
 
-            // 🌳 1 arbre mature absorbe 22kg CO₂/an
+            // 1 arbre mature absorbe 22kg CO₂/an
             treesDays: (co2PerVisit / 22000) * 365, // Jours d'absorption d'un arbre
 
-            // 🍔 1 hamburger = 2.5kg CO₂
+            // hamburger = 2.5kg CO₂
             burgers: co2PerVisit / 2500, // Fraction de hamburger
 
-            // ⚡ Recharge complète voiture électrique = 15kg CO₂ (75kWh)
+            // Recharge complète voiture électrique = 15kg CO₂ (75kWh)
             evChargePercent: (co2PerVisit / 15000) * 100, // % de charge voiture électrique
 
-            // 🏠 Consommation électrique maison française 1 jour = 30kg CO₂
+            // Consommation électrique maison française 1 jour = 30kg CO₂
             houseDailyElectricity: (co2PerVisit / 30000) * 24 * 60, // Minutes d'électricité maison
 
-            // 📺 TV LED 55" allumée 1h = 150g CO₂
+            // TV LED 55" allumée 1h = 150g CO₂
             tvHours: (co2PerVisit / 150) * 60, // Minutes de TV
 
-            // 🧻 1 rouleau papier toilette = 1.5kg CO₂
+            // 1 rouleau papier toilette = 1.5kg CO₂
             toiletPaper: co2PerVisit / 1500, // Fraction de rouleau
 
-            // 🚲 vs 🚗 : 1km à vélo = 0g, 1km en voiture = 180g
+            // 1km à vélo = 0g, 1km en voiture = 180g
             carVsBikeKm: co2PerVisit / 180 * 1000 // mètres économisés en prenant le vélo
         };
 
@@ -180,12 +180,12 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
 
     const strategyInfo = getStrategyDisplay();
 
-    // 🎯 SÉLECTION INTELLIGENTE DES MEILLEURES ÉQUIVALENCES
+    // SÉLECTION DES MEILLEURES ÉQUIVALENCES
     const getBestEquivalences = () => {
         const eq = equivalences;
         const results = [];
 
-        // 🔥 Équivalences alimentaires (très parlantes)
+        // Équivalences alimentaires
         if (eq.beefGrams >= 0.1) {
             results.push({
                 icon: '🥩',
@@ -208,7 +208,7 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
             });
         }
 
-        // 🚗 Transport (très impactant)
+        // Transport
         if (eq.gasCarKm >= 1) {
             results.push({
                 icon: '🚗',
@@ -229,7 +229,7 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
             });
         }
 
-        // 🏠 Énergie domestique (très relatable)
+        // Énergie domestique
         if (eq.houseDailyElectricity >= 1) {
             results.push({
                 icon: '🏠',
@@ -252,7 +252,7 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
             });
         }
 
-        // 🌱 Nature (positif)
+        // Nature
         if (eq.treesDays >= 0.1) {
             results.push({
                 icon: '🌳',
@@ -264,7 +264,7 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
             });
         }
 
-        // ✈️ Vol (très impactant si pertinent)
+        // Vol
         if (eq.flightDistance >= 0.1) {
             results.push({
                 icon: '✈️',
@@ -276,7 +276,7 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
             });
         }
 
-        // 📱 Tech (relatable)
+        // Tech (relatable)
         if (eq.smartphone >= 0.00001) {
             const percentage = eq.smartphone * 100;
             results.push({
@@ -289,7 +289,7 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
             });
         }
 
-        // 🔋 Recharge EV
+        // Recharge EV
         if (eq.evChargePercent >= 0.01) {
             results.push({
                 icon: '🔋',
@@ -301,13 +301,11 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
             });
         }
 
-        // Retourner les 4 plus pertinentes
+        // Retourne les 4 plus pertinentes
         return results.slice(0, 4);
     };
 
     const bestEquivalences = getBestEquivalences();
-
-    // 🎨 FONCTIONS POUR LES ANALYSES DÉTAILLÉES
 
     // Calcul des pourcentages pour la composition
     const calculateResourcesBreakdown = () => {
@@ -371,10 +369,8 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
         ].filter(item => item.value > 0).sort((a, b) => b.value - a.value);
     };
 
-    // ✨ CORRECTION : Calcul du score performance uniquement depuis PageSpeed
+    // Calcul du score performance
     const getPerformanceScore = () => {
-        // Le score global (data.score) est environnemental, pas de performance pure
-        // Il faut extraire le score performance depuis les métriques ou utiliser une estimation
 
         // Estimation du score performance basée sur les métriques Web Vitals
         if (!data.performanceMetrics) return 0;
@@ -422,7 +418,7 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
         return metricsCount > 0 ? Math.round(performanceScore / metricsCount) : 0;
     };
 
-    // Analyse détaillée des performances
+    // Analyse des performances
     const getPerformanceAnalysis = () => {
         if (!data.performanceMetrics) return [];
 
@@ -522,7 +518,7 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
         }
     };
 
-    // 🎨 NOUVEAU SYSTÈME VISUEL : DOTS INDICATORS ANIMÉS
+    // DOTS INDICATORS ANIMÉS
     const getStatusDots = (status: string) => {
         const dotCount = status === 'excellent' ? 5 :
             status === 'ameliorer' ? 3 :
@@ -551,7 +547,7 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
         );
     };
 
-    // 🎯 SYSTÈME DE JAUGE CIRCULAIRE
+    // SYSTÈME DE JAUGE CIRCULAIRE
     const CircularGauge = ({ value, maxValue, label, color = 'emerald' }: {
         value: number;
         maxValue: number;
@@ -608,7 +604,7 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
         );
     };
 
-    // 📊 SYSTÈME DE CARTES EN GRILLES POUR RESSOURCES
+    // SYSTÈME DE CARTES EN GRILLES
     const ResourceCard = ({ resource, rank }: { resource: any; rank: number }) => {
         const getBorderIntensity = (percentage: number) => {
             if (percentage > 50) return 'border-red-500/50 shadow-red-500/20';
@@ -804,7 +800,7 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
                 </div>
             </div>
 
-            {/* 🚀 ÉQUIVALENCES PUISSANTES ET IMPACTANTES */}
+            {/* ÉQUIVALENCES */}
             <div className="glass-light rounded-3xl p-8 border border-white/10">
                 <div className="text-center mb-8">
                     <h2 className="text-2xl font-bold text-white mb-2">
@@ -941,7 +937,7 @@ export function CarbonResults({ data, onReset }: CarbonResultsProps) {
                 </div>
             </div>
 
-            {/* 🎨 ANALYSE DÉTAILLÉE AVEC CARTES VISUELLES */}
+            {/* ANALYSE DÉTAILLÉE AVEC CARTES VISUELLES */}
             <div className="glass-light rounded-3xl p-8 border border-white/10">
                 <div className="mb-8">
                     <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-3">
