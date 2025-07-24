@@ -1,0 +1,35 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy project to VPS
+        run: |
+          rsync -az --delete \
+            --exclude "prisma/migrations" \
+            --exclude "node_modules" \
+            --exclude ".next" \
+            --exclude ".env.local" \
+            -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
+            . ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/home/docker/carbweb
+
+      - name: Restart Docker container
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} 'cd /home/docker/carbweb && docker-compose down && docker-compose up --build -d'

@@ -10,7 +10,6 @@
 !.yarn/releases
 !.yarn/versions
 
-.github
 
 .idea
 
@@ -20,8 +19,6 @@
 # next.js
 /.next/
 /out/
-
-/.github
 
 # production
 /build
