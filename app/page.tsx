@@ -339,7 +339,7 @@ export default function Home() {
                                     rel="noopener noreferrer"
                                     className="text-emerald-400 hover:text-emerald-300 font-medium transition-colors duration-200 hover:underline"
                                 >
-                                    Kevin Monteiro
+                                    Helveit
                                 </a>
                             </div>
                             <div className="text-center">
