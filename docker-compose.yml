@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  carbweb_app:
+    build: .
+    image: carbweb/app:latest
+    container_name: carbweb_app
+    restart: always
+    expose:
+      - "3000"
+    environment:
+      - VIRTUAL_HOST=carbweb.ch,www.carbweb.ch
+      - LETSENCRYPT_HOST=carbweb.ch,www.carbweb.ch
+      - LETSENCRYPT_EMAIL=info@carbweb.ch
+      - VIRTUAL_PORT=3000
+    networks:
+      - nginx-proxy
+
+networks:
+  nginx-proxy:
+    external: true
