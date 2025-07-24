@@ -330,7 +330,7 @@ export default function Home() {
                         {/* Footer */}
                         <footer className="mt-12 sm:mt-16 py-6 sm:py-8 text-center">
                             <div className="flex items-center justify-center gap-2 text-sm text-gray-400 mb-4">
-                                <span>Fait avec</span>
+                                <span>Conceptualisé avec</span>
                                 <span className="text-red-400 animate-pulse">❤️</span>
                                 <span>par</span>
                                 <a
