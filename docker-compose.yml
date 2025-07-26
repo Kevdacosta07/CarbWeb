@@ -13,7 +13,6 @@ services:
       - LETSENCRYPT_HOST=carbweb.ch,www.carbweb.ch
       - LETSENCRYPT_EMAIL=info@carbweb.ch
       - VIRTUAL_PORT=3000
-      - NEXT_PUBLIC_PAGESPEED_API_KEY=AIzaSyDmp1c59Zbut7QKPztFw9pC-TCPyN1zjp4
     networks:
       - nginx-proxy
 
