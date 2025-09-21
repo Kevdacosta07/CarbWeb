@@ -29,8 +29,8 @@ jobs:
             --exclude ".env.local" \
             -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
             . ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/home/docker/carbweb
-            
+
 
       - name: Restart Docker container
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} 'cd /home/docker/carbweb && docker-compose down && docker-compose up --build -d'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} 'cd /home/docker/carbweb && sudo docker-compose down && sudo docker-compose up --build -d'
