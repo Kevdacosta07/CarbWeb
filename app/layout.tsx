@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Outfit } from 'next/font/google';
 import './globals.css';
 import { Navigation } from "@/app/component/Navigation";
+import { Footer } from "@/app/component/Footer";
 
 const outfit = Outfit({ 
   subsets: ['latin'],
@@ -160,9 +161,12 @@ export default function RootLayout({
                 }}
             />
         </head>
-        <body className="bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-50 antialiased overflow-x-hidden font-sans">
-        <Navigation />
-        {children}
+        <body className="bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-50 antialiased overflow-x-hidden font-sans flex flex-col min-h-screen">
+            <Navigation />
+            <div className="flex-grow">
+                {children}
+            </div>
+            <Footer />
         </body>
         </html>
     );
