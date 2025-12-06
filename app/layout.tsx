@@ -1,7 +1,14 @@
 
 import type { Metadata } from 'next';
+import { Outfit } from 'next/font/google';
 import './globals.css';
 import { Navigation } from "@/app/component/Navigation";
+
+const outfit = Outfit({ 
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-outfit',
+});
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://carbweb.ch'),
@@ -65,7 +72,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="fr" suppressHydrationWarning>
+        <html lang="fr" suppressHydrationWarning className={outfit.variable}>
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="theme-color" content="#000000" />
@@ -153,7 +160,7 @@ export default function RootLayout({
                 }}
             />
         </head>
-        <body className="bg-black text-white antialiased overflow-x-hidden">
+        <body className="bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-50 antialiased overflow-x-hidden font-sans">
         <Navigation />
         {children}
         </body>

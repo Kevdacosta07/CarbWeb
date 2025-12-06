@@ -12,11 +12,11 @@ export function TechnicalLink({ children, href, description }: TechnicalLinkProp
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-flex items-center text-emerald-400 hover:text-emerald-300 transition-colors duration-200 border-b border-emerald-400/30 hover:border-emerald-300/50"
+            className="relative inline-flex items-center font-medium text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors duration-200 border-b border-emerald-200 dark:border-emerald-800 hover:border-emerald-500 dark:hover:border-emerald-500"
             title={description || `En savoir plus sur ${children}`}
         >
             {children}
-            <span className="ml-1 text-xs opacity-70">↗</span>
+            <span className="ml-1 text-[10px] opacity-70">↗</span>
         </a>
     );
 }
