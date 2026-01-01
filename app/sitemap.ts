@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://carbweb.ch' // Remplace par ton vrai domaine
+    const baseUrl = 'https://carbweb.ch'
 
     return [
         {
